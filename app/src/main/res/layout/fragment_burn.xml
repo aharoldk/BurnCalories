@@ -1,0 +1,52 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.aharoldk.burncalories.fragment.BurnFragment">
+
+    <android.support.design.widget.CoordinatorLayout
+        style="@style/matchmatch">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="225dp"
+                android:orientation="vertical"
+                android:background="@color/burn"
+                android:gravity="center_horizontal|center_vertical">
+                <TextView
+                    android:id="@+id/tvBurnCalories"
+                    style="@style/wrapwrap"
+                    android:text="1000"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="44sp"/>
+                <TextView
+                    style="@style/wrapwrap"
+                    android:text="calories"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="17sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/matchmatch"
+                android:gravity="center_horizontal|center_vertical">
+                <Button
+                    android:id="@+id/btnStart"
+                    style="@style/wrapwrap"
+                    android:text="start"
+                    android:textAllCaps="true"
+                    android:textStyle="bold"
+                    android:textColor="@color/burn"
+                    android:textSize="22sp"
+                    android:background="@drawable/circle_orange"
+                    android:gravity="center_horizontal|center_vertical"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </android.support.design.widget.CoordinatorLayout>
+
+</FrameLayout>

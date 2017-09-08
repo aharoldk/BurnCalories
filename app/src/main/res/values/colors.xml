@@ -2,5 +2,9 @@
 <resources>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#58595b</color>
+    <color name="colorWhite">#fefefe</color>
+    <color name="home">#1b75bc</color>
+    <color name="burn">#f26522</color>
+    <color name="profile">#27aae1</color>
 </resources>

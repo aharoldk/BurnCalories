@@ -8,4 +8,33 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="matchmatch">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="matchwrap">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="wrapwrap">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="NoActionBar" parent="Theme.AppCompat.Light.NoActionBar"/>
+
+    <style name="home" parent="Theme.AppCompat.NoActionBar">
+        <item name="colorPrimaryDark">@color/home</item>
+    </style>
+
+    <style name="burn" parent="Theme.AppCompat.NoActionBar">
+        <item name="colorPrimaryDark">@color/burn</item>
+    </style>
+
+    <style name="profile" parent="Theme.AppCompat.NoActionBar">
+        <item name="colorPrimaryDark">@color/profile</item>
+    </style>
+
 </resources>

@@ -1,0 +1,115 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.ProfileFragment">
+
+    <android.support.design.widget.CoordinatorLayout
+        style="@style/matchmatch">
+        <RelativeLayout
+            style="@style/matchwrap">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="225dp"
+                android:orientation="vertical"
+                android:background="@color/home">
+
+                <LinearLayout
+                    style="@style/matchwrap"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:padding="10dp">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/profile_image"
+                        android:layout_width="125dp"
+                        android:layout_height="125dp"
+                        android:src="@drawable/pp"
+                        app:civ_border_width="2dp"
+                        app:civ_border_color="@color/colorWhite"/>
+
+                    <TextView
+                        android:id="@+id/tvName"
+                        style="@style/wrapwrap"
+                        android:layout_marginTop="5dp"
+                        android:text="Alwandy Harold Kalangi"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="18sp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/matchwrap">
+                    <LinearLayout
+                        style="@style/wrapwrap"
+                        android:layout_weight="0.3"
+                        android:orientation="vertical">
+                        <TextView
+                            style="@style/matchwrap"
+                            android:text="Avg steps"
+                            android:textColor="@color/colorWhite"
+                            android:gravity="center_horizontal|center_vertical"/>
+                        <TextView
+                            android:id="@+id/tvAvgSteps"
+                            style="@style/matchwrap"
+                            android:text="1000"
+                            android:textSize="26sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/colorWhite"
+                            android:gravity="center_horizontal|center_vertical" />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        style="@style/wrapwrap"
+                        android:layout_weight="0.3"
+                        android:orientation="vertical">
+                        <TextView
+                            style="@style/matchwrap"
+                            android:text="Distance (km)"
+                            android:textColor="@color/colorWhite"
+                            android:gravity="center_horizontal|center_vertical"/>
+                        <TextView
+                            android:id="@+id/tvDistance"
+                            style="@style/matchwrap"
+                            android:text="1234"
+                            android:textSize="26sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/colorWhite"
+                            android:gravity="center_horizontal|center_vertical" />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        style="@style/wrapwrap"
+                        android:layout_weight="0.3"
+                        android:orientation="vertical">
+                        <TextView
+                            style="@style/matchwrap"
+                            android:text="Avg cal"
+                            android:textColor="@color/colorWhite"
+                            android:gravity="center_horizontal|center_vertical"/>
+                        <TextView
+                            android:id="@+id/tvAvgCal"
+                            style="@style/matchwrap"
+                            android:text="100"
+                            android:textSize="26sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/colorWhite"
+                            android:gravity="center_horizontal|center_vertical" />
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <ImageView
+                style="@style/wrapwrap"
+                app:srcCompat="@drawable/ic_settings"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_alignParentRight="true"/>
+        </RelativeLayout>
+
+
+    </android.support.design.widget.CoordinatorLayout>
+
+</FrameLayout>

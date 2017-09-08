@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.aharoldk.burncalories.KillerActivity"
+    android:background="@color/colorAccent">
+
+    <LinearLayout
+        style="@style/matchmatch"
+        android:orientation="vertical"
+        android:layout_marginTop="50dp">
+
+        <TextView
+            android:id="@+id/tvCountdownView"
+            style="@style/wrapwrap"
+            android:textSize="32sp"
+            android:text="0:0:0"
+            android:textColor="@color/colorWhite"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="0dp"/>
+
+        <TextView
+            android:id="@+id/tvTotalCalories"
+            style="@style/matchwrap"
+            android:text="0"
+            android:textSize="180sp"
+            android:textColor="@color/colorWhite"
+            android:gravity="center_horizontal"/>
+        <TextView
+            style="@style/matchwrap"
+            android:text="cal"
+            android:textSize="18sp"
+            android:layout_marginTop="-30dp"
+            android:textColor="@color/colorWhite"
+            android:gravity="center_horizontal"/>
+
+        <LinearLayout
+            style="@style/matchmatch"
+            android:gravity="center_horizontal|bottom"
+            android:background="@color/colorAccent"
+            android:layout_marginBottom="50dp">
+
+            <LinearLayout
+                android:id="@+id/pauseView"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/circle_white"
+                android:gravity="center_horizontal|center_vertical">
+
+                <ImageView
+                    android:id="@+id/ivPlayPause"
+                    style="@style/wrapwrap"
+                    app:srcCompat="@drawable/ic_pause"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/stopView"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/circle_white"
+                android:gravity="center_horizontal|center_vertical">
+
+                <ImageView
+                    style="@style/wrapwrap"
+                    app:srcCompat="@drawable/ic_stop"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvCountdown"
+        style="@style/matchmatch"
+        android:text="3"
+        android:textSize="300dp"
+        android:textStyle="italic"
+        android:textColor="@color/colorWhite"
+        android:gravity="center_horizontal|center_vertical"
+        android:background="@color/colorAccent"/>
+</RelativeLayout>
