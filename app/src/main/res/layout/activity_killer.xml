@@ -37,6 +37,50 @@
             android:gravity="center_horizontal"/>
 
         <LinearLayout
+            style="@style/matchwrap">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/tvTotalDistance"
+                    style="@style/matchwrap"
+                    android:text="0"
+                    android:textSize="50sp"
+                    android:textColor="@color/colorWhite"
+                    android:gravity="center_horizontal"/>
+                <TextView
+                    style="@style/matchwrap"
+                    android:text="distance"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorWhite"
+                    android:gravity="center_horizontal"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvTotalCount"
+                    style="@style/matchwrap"
+                    android:text="0"
+                    android:textSize="50sp"
+                    android:textColor="@color/colorWhite"
+                    android:gravity="center_horizontal"/>
+                <TextView
+                    style="@style/matchwrap"
+                    android:text="count"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorWhite"
+                    android:gravity="center_horizontal"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
             style="@style/matchmatch"
             android:gravity="center_horizontal|bottom"
             android:background="@color/colorAccent"

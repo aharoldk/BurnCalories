@@ -40,7 +40,8 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    style="@style/matchwrap">
+                    style="@style/matchwrap"
+                    android:layout_marginTop="-5dp">
                     <LinearLayout
                         style="@style/wrapwrap"
                         android:layout_weight="0.3"
