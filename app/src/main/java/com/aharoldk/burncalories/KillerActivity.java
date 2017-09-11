@@ -3,6 +3,7 @@ package com.aharoldk.burncalories;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.icu.text.DecimalFormat;
+import android.icu.text.SimpleDateFormat;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -14,11 +15,15 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.aharoldk.burncalories.helper.DatabaseHelper;
 import com.aharoldk.burncalories.helper.PedometerCallback;
 import com.aharoldk.burncalories.helper.PedometerHelper;
 import com.samsung.android.sdk.SsdkUnsupportedException;
 import com.samsung.android.sdk.motion.SmotionPedometer;
+
+import java.util.Calendar;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -41,6 +46,11 @@ public class KillerActivity extends AppCompatActivity implements View.OnClickLis
     private int seconds=0;
     private boolean startRun = false;
 
+    private int resultCount = -5;
+    private double resultCalories = 0;
+    private double oldresultCalories = 0;
+    private double resultDistance = 0;
+    private double oldresultDistance = 0;
     private static final long totalTime = 4 * 1000;
     private static final long interval = 1000;
 
@@ -90,6 +100,7 @@ public class KillerActivity extends AppCompatActivity implements View.OnClickLis
         stopView.setOnClickListener(this);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public void onClick(View view) {
         if(view.equals(pauseView)){
@@ -112,6 +123,21 @@ public class KillerActivity extends AppCompatActivity implements View.OnClickLis
 
         } else if (view.equals(stopView)){
             startRun=false;
+            pedometerHelper.stop();
+
+            DatabaseHelper databaseHelper = new DatabaseHelper(this);
+
+            SimpleDateFormat dateTimeFormat = new SimpleDateFormat("dd-MM-yyyy");
+
+            Calendar calendar = Calendar.getInstance();
+            String dateNow = dateTimeFormat.format(calendar.getTime());
+
+            if(!databaseHelper.insertActivity(resultDistance, resultCalories, resultCount, dateNow)){
+                Toast.makeText(this, "Database Error", Toast.LENGTH_SHORT).show();
+
+            } else {
+                finish();
+            }
         }
     }
 
@@ -157,37 +183,48 @@ public class KillerActivity extends AppCompatActivity implements View.OnClickLis
                 .show();
     }
 
-    @Override
-    public void motionStarted() {
-
-    }
-
-    @Override
-    public void motionStopped() {
-
-    }
-
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public void updateInfo(SmotionPedometer.Info info) {
         double calorie = info.getCalorie();
-        double distance = info.getDistance();
-        long count = info.getCount(SmotionPedometer.Info.COUNT_TOTAL);
+        double distance = info.getDistance() / interval;
 
-        DecimalFormat df = new DecimalFormat("#.##");
+        DecimalFormat df2 = new DecimalFormat("#.##");
+        DecimalFormat df3 = new DecimalFormat("#.###");
 
-        tvTotalCalories.setText(String.valueOf(calorie));
-        tvTotalDistance.setText(df.format(distance));
-        tvTotalCount.setText(String.valueOf(count));
+        if(info.getCount(SmotionPedometer.Info.COUNT_TOTAL) != 0){
 
-        Log.d("Burn", "onChanged: "+ " calorie "+calorie+
-                " distance"+df.format(distance)+
-                " count"+count);
+            if(resultCount < 0){
+                oldresultCalories = calorie;
+                oldresultDistance = distance;
+                resultCount = 0;
+            }
+
+            resultDistance = resultDistance + (distance - oldresultDistance);
+            resultCalories = resultCalories + (calorie - oldresultCalories);
+        }
+
+        tvTotalCalories.setText(""+df2.format(resultCalories));
+        tvTotalDistance.setText(""+df3.format(resultDistance));
+        tvTotalCount.setText(String.valueOf(resultCount));
+
+        Log.d("Burn", "onChanged: "+ " calorie "+df2.format(resultCalories)+
+                " distance"+df3.format(resultDistance)+
+                " count"+resultCount);
+
+        try {
+            resultCount++;
+            oldresultCalories = calorie;
+            oldresultDistance = distance;
+        } catch (Exception e ){
+            e.printStackTrace();
+        }
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
+
         pedometerHelper.stop();
     }
 
@@ -200,10 +237,12 @@ public class KillerActivity extends AppCompatActivity implements View.OnClickLis
 
         @Override
         public void onFinish() {
-            if(tvCountDown!=null){
+            if(tvCountDown != null){
                 tvCountDown.setVisibility(View.GONE);
                 stopView.setVisibility(View.GONE);
-                startRun=true;
+
+                startRun = true;
+
                 pedometerHelper.start();
             }
         }
@@ -214,5 +253,29 @@ public class KillerActivity extends AppCompatActivity implements View.OnClickLis
                 tvCountDown.setText("" + millisUntilFinished / 1000);
             }
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(startpause.equals("pause")){
+            final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+            builder.setMessage("Are you want back? ");
+            builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    KillerActivity.super.onBackPressed();
+                    finish();
+                }
+            });
+            builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                }
+            });
+            builder.show();
+        } else {
+            super.onBackPressed();
+            finish();
+        }
+
     }
 }

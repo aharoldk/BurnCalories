@@ -19,22 +19,22 @@
             android:text="0:0:0"
             android:textColor="@color/colorWhite"
             android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="0dp"/>
+            android:layout_marginBottom="40dp"/>
 
         <TextView
             android:id="@+id/tvTotalCalories"
             style="@style/matchwrap"
             android:text="0"
-            android:textSize="180sp"
+            android:textSize="100sp"
             android:textColor="@color/colorWhite"
             android:gravity="center_horizontal"/>
         <TextView
             style="@style/matchwrap"
-            android:text="cal"
+            android:text="calories"
             android:textSize="18sp"
-            android:layout_marginTop="-30dp"
             android:textColor="@color/colorWhite"
-            android:gravity="center_horizontal"/>
+            android:gravity="center_horizontal"
+            android:layout_marginBottom="30dp"/>
 
         <LinearLayout
             style="@style/matchwrap">
@@ -52,7 +52,7 @@
                     android:gravity="center_horizontal"/>
                 <TextView
                     style="@style/matchwrap"
-                    android:text="distance"
+                    android:text="distance (km)"
                     android:textSize="18sp"
                     android:textColor="@color/colorWhite"
                     android:gravity="center_horizontal"/>
@@ -73,7 +73,7 @@
                     android:gravity="center_horizontal"/>
                 <TextView
                     style="@style/matchwrap"
-                    android:text="count"
+                    android:text="count (step)"
                     android:textSize="18sp"
                     android:textColor="@color/colorWhite"
                     android:gravity="center_horizontal"/>

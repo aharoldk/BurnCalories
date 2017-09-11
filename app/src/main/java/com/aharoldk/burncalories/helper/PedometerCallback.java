@@ -7,7 +7,5 @@ import com.samsung.android.sdk.motion.SmotionPedometer;
  */
 
 public interface PedometerCallback {
-    void motionStarted();
-    void motionStopped();
     void updateInfo(SmotionPedometer.Info info);
 }
