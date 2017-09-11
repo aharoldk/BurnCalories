@@ -10,6 +10,7 @@
         <RelativeLayout
             style="@style/matchwrap">
             <LinearLayout
+                android:id="@+id/llProfile"
                 android:layout_width="match_parent"
                 android:layout_height="225dp"
                 android:orientation="vertical"
@@ -67,11 +68,11 @@
                         android:orientation="vertical">
                         <TextView
                             style="@style/matchwrap"
-                            android:text="Distance (km)"
+                            android:text="Avg Distance (km)"
                             android:textColor="@color/colorWhite"
                             android:gravity="center_horizontal|center_vertical"/>
                         <TextView
-                            android:id="@+id/tvDistance"
+                            android:id="@+id/tvAvgDistance"
                             style="@style/matchwrap"
                             android:text="1234"
                             android:textSize="26sp"
@@ -102,6 +103,16 @@
                 </LinearLayout>
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_below="@+id/llProfile"
+                style="@style/matchwrap"
+                android:orientation="vertical">
+                <LinearLayout
+                    style="@style/matchwrap">
+                    <TextView
+                        style="@style/wrapwrap"/>
+                </LinearLayout>
+            </LinearLayout>
             <ImageView
                 style="@style/wrapwrap"
                 app:srcCompat="@drawable/ic_settings"
