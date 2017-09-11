@@ -21,8 +21,10 @@
         <activity
             android:name=".MainActivity"
             android:theme="@style/NoActionBar" />
-        <activity android:name=".KillerActivity"
-            android:theme="@style/NoActionBar"/>
+        <activity
+            android:name=".KillerActivity"
+            android:theme="@style/NoActionBar" />
+        <activity android:name=".InsertActivity"/>
     </application>
 
 </manifest>

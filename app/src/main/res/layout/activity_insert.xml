@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/matchmatch"
+    tools:context="com.aharoldk.burncalories.InsertActivity"
+    android:orientation="horizontal"
+    android:padding="@dimen/activity_horizontal_margin">
+
+    <ScrollView
+        style="@style/matchwrap">
+        <LinearLayout
+            style="@style/matchwrap">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="80dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/soda"
+                    android:layout_gravity="center"/>
+                <CheckBox
+                    android:id="@+id/chkSoda"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sugary Soft Drink"
+                    android:layout_marginBottom="15dp"
+                    android:onClick="onCheckboxClicked"/>
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/pizza"
+                    android:layout_gravity="center"/>
+
+                <CheckBox
+                    android:id="@+id/chkPizza"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Large Pizza (1/4)"
+                    android:layout_marginBottom="15dp"
+                    android:onClick="onCheckboxClicked"/>
+
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/sandwich"
+                    android:layout_gravity="center"/>
+
+                <CheckBox
+                    android:id="@+id/chkSandwich"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sandwich (Chicken)"
+                    android:layout_marginBottom="15dp"
+                    android:onClick="onCheckboxClicked"/>
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/cereal"
+                    android:layout_gravity="center"/>
+
+                <CheckBox
+                    android:id="@+id/chkCereal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ceral (1 bowl)"
+                    android:layout_marginBottom="15dp"
+                    android:onClick="onCheckboxClicked"/>
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/blueberry_muffin"
+                    android:layout_gravity="center"/>
+
+                <CheckBox
+                    android:id="@+id/chkMuffin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Blueberry Muffin"
+                    android:layout_marginBottom="15dp"
+                    android:onClick="onCheckboxClicked"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="80dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/chocolate"
+                    android:layout_gravity="center"/>
+                <CheckBox
+                    android:id="@+id/chkChoco"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Chocolate Bar"
+                    android:layout_marginBottom="15dp"
+                    android:onClick="onCheckboxClicked"/>
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="80dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/coffee"
+                    android:layout_gravity="center"/>
+
+                <CheckBox
+                    android:id="@+id/chkMocha"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mocha Coffee"
+                    android:layout_marginBottom="15dp"
+                    android:onClick="onCheckboxClicked"/>
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/chips"
+                    android:layout_gravity="center"/>
+                <CheckBox
+                    android:id="@+id/chkChips"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Packet Chips"
+                    android:layout_marginBottom="15dp"
+                    android:onClick="onCheckboxClicked"/>
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/kacang"
+                    android:layout_gravity="center"/>
+                <CheckBox
+                    android:id="@+id/chkPeanuts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Roasted Peanuts"
+                    android:layout_marginBottom="15dp"
+                    android:onClick="onCheckboxClicked"/>
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/cinnamon"
+                    android:layout_gravity="center"/>
+                <CheckBox
+                    android:id="@+id/chkCinnamon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cinnamon Roll"
+                    android:layout_marginBottom="15dp"
+                    android:onClick="onCheckboxClicked"/>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

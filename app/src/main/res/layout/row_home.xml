@@ -5,6 +5,7 @@
     style="@style/matchwrap"
     app:cardUseCompatPadding="true"
     app:cardElevation="10dp">
+
     <LinearLayout
         style="@style/matchwrap"
         android:padding="10dp">
@@ -12,10 +13,11 @@
             android:id="@+id/tvDate"
             style="@style/wrapwrap"
             android:text="Date"
-            android:textSize="16dp"/>
+            android:textSize="16sp"/>
         <LinearLayout
             style="@style/matchwrap"
             android:gravity="end">
+
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"
@@ -23,8 +25,26 @@
             <TextView
                 android:id="@+id/tvCalories"
                 style="@style/wrapwrap"
-                android:text="   total cal"
-                android:textSize="16dp"/>
+                android:text=" total cal     "
+                android:textSize="16sp"/>
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                app:srcCompat="@drawable/ic_walk" />
+            <TextView
+                android:id="@+id/tvTotalWalk"
+                style="@style/wrapwrap"
+                android:text="17 m "
+                android:textSize="16sp"/>
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                app:srcCompat="@drawable/ic_run" />
+            <TextView
+                android:id="@+id/tvTotalRun"
+                style="@style/wrapwrap"
+                android:text="20 m"
+                android:textSize="16sp"/>
         </LinearLayout>
 
     </LinearLayout>

@@ -6,6 +6,17 @@
 
     <RelativeLayout
         style="@style/matchmatch">
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fabHome"
+            style="@style/wrapwrap"
+            app:srcCompat="@drawable/ic_add"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="20dp"
+            android:layout_marginRight="20dp"
+            app:backgroundTint="@color/profile"
+            app:elevation="5dp"
+            app:fabSize="normal"/>
         <android.support.design.widget.CoordinatorLayout
             style="@style/matchmatch">
 
@@ -63,17 +74,6 @@
 
         </android.support.design.widget.CoordinatorLayout>
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fabHome"
-            style="@style/wrapwrap"
-            app:srcCompat="@drawable/ic_add"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginBottom="20dp"
-            android:layout_marginRight="20dp"
-            app:backgroundTint="@color/profile"
-            app:elevation="5dp"
-            app:fabSize="normal"/>
     </RelativeLayout>
 
 </FrameLayout>

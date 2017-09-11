@@ -6,16 +6,17 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-/**
- * Created by aharoldk on 10/09/17.
- */
+import com.aharoldk.burncalories.model.Home;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     private SQLiteDatabase sqLiteDatabase;
 
     // Database Version
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 4;
 
     // Database Name
     private static final String DATABASE_NAME = "burncalories.db";
@@ -36,22 +37,23 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String STEPS = "steps";
     private static final String DATE_ACTIVITY = "date_activity";
 
-    private static final String QUERY_TABLE1 = "CREATE TABLE "+TABLE_NAME1+"("
+    private static final String QUERY_TABLE1 = "CREATE TABLE "+TABLE_NAME1+" ("
             +ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "
             +NAME+" VARCHAR(20) NULL)";
 
-    private static final String QUERY_TABLE2 = "CREATE TABLE "+TABLE_NAME2+"("
+    private static final String QUERY_TABLE2 = "CREATE TABLE "+TABLE_NAME2+" ("
             +ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "
             +TOTAL_CALORIES+" DOUBLE NULL, "
             +TOTAL_WALK_OFF+" INTEGER NULL, "
-            +TOTAL_RUN_OFF+" INTEGER NULL)";
+            +TOTAL_RUN_OFF+" INTEGER NULL, "
+            +DATE_ACTIVITY+" VARCHAR(10) NULL)";
 
-    private static final String QUERY_TABLE3 = "CREATE TABLE "+TABLE_NAME3+"("
+    private static final String QUERY_TABLE3 = "CREATE TABLE "+TABLE_NAME3+" ("
             +ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "
             +DISTANCES+" DOUBLE NULL, "
             +CALORIES+" DOUBLE NULL, "
             +STEPS+" INTEGER NULL, "
-            +DATE_ACTIVITY+" VARCHAR(10)";
+            +DATE_ACTIVITY+" VARCHAR(10) NULL)";
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -93,7 +95,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
-    public Boolean insertFood(Double calories, int walk, int run){
+    public Boolean insertFood(Double calories, int walk, int run, String date){
         sqLiteDatabase = DatabaseHelper.this.getWritableDatabase();
 
         ContentValues contentValues = new ContentValues();
@@ -101,10 +103,33 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(TOTAL_CALORIES, calories);
         contentValues.put(TOTAL_WALK_OFF, walk);
         contentValues.put(TOTAL_RUN_OFF, run);
+        contentValues.put(DATE_ACTIVITY, date);
 
         long result = sqLiteDatabase.insert(TABLE_NAME2, null, contentValues);
 
         return result != -1;
+    }
+
+    public List<Home> selectFood(){
+        List<Home> list = new ArrayList<>();
+
+        sqLiteDatabase = DatabaseHelper.this.getWritableDatabase();
+
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM "+TABLE_NAME2, null);
+
+        while (cursor.moveToNext()) {
+            double total_calories = cursor.getDouble(1);
+            int total_walk_off = cursor.getInt(2);
+            int total_run_off = cursor.getInt(3);
+            String date = cursor.getString(4);
+
+            Home home = new Home(total_calories, total_walk_off, total_run_off, date);
+
+            list.add(home);
+        }
+
+        return list;
+
     }
 
     public Boolean insertActivity(Double distance, double calories, int steps, String date){
