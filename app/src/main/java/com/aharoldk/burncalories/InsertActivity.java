@@ -1,5 +1,6 @@
 package com.aharoldk.burncalories;
 
+import android.content.Intent;
 import android.icu.text.SimpleDateFormat;
 import android.os.Build;
 import android.os.Bundle;
@@ -62,6 +63,8 @@ public class InsertActivity extends AppCompatActivity {
                 String dateNow = dateFormat.format(calendar.getTime());
                 if(databaseHelper.insertFood(total_calories, total_walk, total_run, dateNow)){
                     finish();
+                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+
                 }
                 break;
         }

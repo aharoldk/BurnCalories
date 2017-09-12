@@ -14,7 +14,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="225dp"
                 android:orientation="vertical"
-                android:background="@color/home">
+                android:background="@color/profile">
 
                 <LinearLayout
                     style="@style/matchwrap"
@@ -27,7 +27,7 @@
                         android:id="@+id/profile_image"
                         android:layout_width="125dp"
                         android:layout_height="125dp"
-                        android:src="@drawable/pp"
+                        app:srcCompat="@drawable/ic_profile"
                         app:civ_border_width="2dp"
                         app:civ_border_color="@color/colorWhite"/>
 
@@ -35,7 +35,7 @@
                         android:id="@+id/tvName"
                         style="@style/wrapwrap"
                         android:layout_marginTop="5dp"
-                        android:text="Alwandy Harold Kalangi"
+                        android:text="Your Name Here"
                         android:textColor="@color/colorWhite"
                         android:textSize="18sp"/>
                 </LinearLayout>
@@ -107,11 +107,87 @@
                 android:layout_below="@+id/llProfile"
                 style="@style/matchwrap"
                 android:orientation="vertical">
-                <LinearLayout
-                    style="@style/matchwrap">
-                    <TextView
-                        style="@style/wrapwrap"/>
-                </LinearLayout>
+
+                <android.support.v7.widget.CardView
+                    style="@style/matchwrap"
+                    app:cardUseCompatPadding="true"
+                    app:cardElevation="10dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp">
+                        <ImageView
+                            android:layout_marginLeft="10dp"
+                            style="@style/wrapmatch"
+                            app:srcCompat="@drawable/ic_cart"/>
+                        <TextView
+                            style="@style/wrapmatch"
+                            android:text="   Total Steps"
+                            android:textSize="22sp"
+                            android:gravity="center_vertical"/>
+                        <TextView
+                            android:id="@+id/tvTotalSteps"
+                            style="@style/matchmatch"
+                            android:text="0"
+                            android:textSize="22sp"
+                            android:layout_marginRight="10dp"
+                            android:gravity="center_vertical|end"/>
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    style="@style/matchwrap"
+                    app:cardUseCompatPadding="true"
+                    app:cardElevation="10dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp">
+                        <ImageView
+                            android:layout_marginLeft="10dp"
+                            style="@style/wrapmatch"
+                            app:srcCompat="@drawable/ic_cart"/>
+                        <TextView
+                            style="@style/wrapmatch"
+                            android:text="   Total Distances"
+                            android:textSize="22sp"
+                            android:gravity="center_vertical"/>
+                        <TextView
+                            android:id="@+id/tvTotalDistance"
+                            style="@style/matchmatch"
+                            android:text="0"
+                            android:textSize="22sp"
+                            android:layout_marginRight="10dp"
+                            android:gravity="center_vertical|end"/>
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    style="@style/matchwrap"
+                    app:cardUseCompatPadding="true"
+                    app:cardElevation="10dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp">
+                        <ImageView
+                            android:layout_marginLeft="10dp"
+                            style="@style/wrapmatch"
+                            app:srcCompat="@drawable/ic_cart"/>
+                        <TextView
+                            style="@style/wrapmatch"
+                            android:text="   Total Calories"
+                            android:textSize="22sp"
+                            android:gravity="center_vertical"/>
+                        <TextView
+                            android:id="@+id/tvTotalCalories"
+                            style="@style/matchmatch"
+                            android:text="0"
+                            android:textSize="22sp"
+                            android:layout_marginRight="10dp"
+                            android:gravity="center_vertical|end"/>
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
             </LinearLayout>
             <ImageView
                 style="@style/wrapwrap"

@@ -24,9 +24,13 @@ public class ProfileFragment extends Fragment {
     @BindView(R.id.tvAvgDistance) TextView tvAvgDistance;
     @BindView(R.id.tvAvgCal) TextView tvAvgCal;
 
-    double totalDistance;
-    double totalSteps;
-    double totalCalories;
+    @BindView(R.id.tvTotalSteps) TextView tvTotalSteps;
+    @BindView(R.id.tvTotalDistance) TextView tvTotalDistance;
+    @BindView(R.id.tvTotalCalories) TextView tvTotalCalories;
+
+    double totalDistance = 0;
+    double totalSteps = 0;
+    double totalCalories = 0;
 
     public ProfileFragment() {
     }
@@ -46,18 +50,36 @@ public class ProfileFragment extends Fragment {
 
         Cursor cursorActivity = databaseHelper.selectActivity();
 
-        while(cursorActivity.moveToNext()){
-            totalDistance += cursorActivity.getDouble(1);
-            totalCalories += cursorActivity.getDouble(2);
-            totalSteps += cursorActivity.getDouble(3);
-
-        }
-
         DecimalFormat decimalFormat = new DecimalFormat("#.##");
 
-        tvAvgSteps.setText(String.valueOf(decimalFormat.format(totalSteps / cursorActivity.getCount())));
-        tvAvgDistance.setText(String.valueOf(decimalFormat.format(totalDistance / cursorActivity.getCount())));
-        tvAvgCal.setText(String.valueOf(decimalFormat.format(totalCalories / cursorActivity.getCount())));
+        if(cursorActivity.getCount() > 0){
+            while(cursorActivity.moveToNext()){
+                totalDistance += cursorActivity.getDouble(1);
+                totalCalories += cursorActivity.getDouble(2);
+                totalSteps += cursorActivity.getDouble(3);
+
+                tvAvgSteps.setText(String.valueOf(totalSteps / cursorActivity.getCount()));
+                tvAvgDistance.setText(String.valueOf(decimalFormat.format(totalDistance / cursorActivity.getCount())));
+                tvAvgCal.setText(String.valueOf(decimalFormat.format(totalCalories / cursorActivity.getCount())));
+
+                tvTotalSteps.setText(String.valueOf(totalSteps));
+                tvTotalDistance.setText(String.valueOf(decimalFormat.format(totalDistance)));
+                tvTotalCalories.setText(String.valueOf(decimalFormat.format(totalCalories)));
+            }
+        } else {
+            tvAvgSteps.setText(String.valueOf(totalSteps));
+            tvAvgDistance.setText(String.valueOf(decimalFormat.format(totalDistance)));
+            tvAvgCal.setText(String.valueOf(decimalFormat.format(totalCalories)));
+
+            tvTotalSteps.setText(String.valueOf(totalSteps));
+            tvTotalDistance.setText(String.valueOf(decimalFormat.format(totalDistance)));
+            tvTotalCalories.setText(String.valueOf(decimalFormat.format(totalCalories)));
+        }
+
+
+
+
+
 
         return view;
     }
