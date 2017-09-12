@@ -155,4 +155,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
+    public Cursor selectCalories(){
+        sqLiteDatabase = DatabaseHelper.this.getWritableDatabase();
+
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM "+ TABLE_NAME2, null);
+
+        return cursor;
+    }
+
 }

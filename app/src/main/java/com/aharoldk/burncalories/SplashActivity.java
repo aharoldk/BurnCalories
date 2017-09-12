@@ -25,7 +25,7 @@ public class SplashActivity extends AppCompatActivity {
 
         Cursor cursor = databaseHelper.selectUser();
         if(cursor.getCount() == 0){
-            databaseHelper.insertUser("Your Name Here");
+            databaseHelper.insertUser("Your Name");
         }
 
         new Handler().postDelayed(new Runnable() {

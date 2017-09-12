@@ -1,6 +1,7 @@
 package com.aharoldk.burncalories.fragment;
 
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.icu.text.DecimalFormat;
 import android.os.Build;
@@ -10,15 +11,19 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.aharoldk.burncalories.R;
+import com.aharoldk.burncalories.SettingActivity;
 import com.aharoldk.burncalories.helper.DatabaseHelper;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class ProfileFragment extends Fragment {
+    @BindView(R.id.ivSetting) ImageView ivSetting;
+
     @BindView(R.id.tvName) TextView tvName;
     @BindView(R.id.tvAvgSteps) TextView tvAvgSteps;
     @BindView(R.id.tvAvgDistance) TextView tvAvgDistance;
@@ -28,8 +33,8 @@ public class ProfileFragment extends Fragment {
     @BindView(R.id.tvTotalDistance) TextView tvTotalDistance;
     @BindView(R.id.tvTotalCalories) TextView tvTotalCalories;
 
+    int totalSteps = 0;
     double totalDistance = 0;
-    double totalSteps = 0;
     double totalCalories = 0;
 
     public ProfileFragment() {
@@ -76,10 +81,12 @@ public class ProfileFragment extends Fragment {
             tvTotalCalories.setText(String.valueOf(decimalFormat.format(totalCalories)));
         }
 
-
-
-
-
+        ivSetting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getContext(), SettingActivity.class));
+            }
+        });
 
         return view;
     }
