@@ -1,9 +1,8 @@
-package com.aharoldk.burncalories.helper;
+package com.aharoldk.burnyourcalories.helper;
 
 import android.content.Context;
 import android.os.Looper;
 
-import com.aharoldk.burncalories.KillerActivity;
 import com.samsung.android.sdk.SsdkUnsupportedException;
 import com.samsung.android.sdk.motion.Smotion;
 import com.samsung.android.sdk.motion.SmotionPedometer;

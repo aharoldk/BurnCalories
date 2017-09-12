@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.aharoldk.burncalories">
+    package="com.aharoldk.burnyourcalories">
 
     <application
         android:allowBackup="true"
@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".SplashActivity"
+            android:name="com.aharoldk.burnyourcalories.SplashActivity"
             android:theme="@style/NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,13 +19,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name="com.aharoldk.burnyourcalories.MainActivity"
             android:theme="@style/NoActionBar" />
         <activity
-            android:name=".KillerActivity"
+            android:name="com.aharoldk.burnyourcalories.KillerActivity"
             android:theme="@style/NoActionBar" />
-        <activity android:name=".InsertActivity" />
-        <activity android:name=".SettingActivity"></activity>
+        <activity android:name="com.aharoldk.burnyourcalories.InsertActivity" />
+        <activity android:name="com.aharoldk.burnyourcalories.SettingActivity"/>
     </application>
 
 </manifest>

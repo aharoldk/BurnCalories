@@ -1,4 +1,4 @@
-package com.aharoldk.burncalories;
+package com.aharoldk.burnyourcalories;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -17,9 +17,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.aharoldk.burncalories.helper.DatabaseHelper;
-import com.aharoldk.burncalories.helper.PedometerCallback;
-import com.aharoldk.burncalories.helper.PedometerHelper;
+import com.aharoldk.burnyourcalories.helper.DatabaseHelper;
+import com.aharoldk.burnyourcalories.helper.PedometerCallback;
+import com.aharoldk.burnyourcalories.helper.PedometerHelper;
 import com.samsung.android.sdk.SsdkUnsupportedException;
 import com.samsung.android.sdk.motion.SmotionPedometer;
 

@@ -1,11 +1,11 @@
-package com.aharoldk.burncalories.adapter;
+package com.aharoldk.burnyourcalories.adapter;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
-import com.aharoldk.burncalories.R;
-import com.aharoldk.burncalories.model.Home;
+import com.aharoldk.burnyourcalories.R;
+import com.aharoldk.burnyourcalories.model.Home;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

@@ -1,4 +1,4 @@
-package com.aharoldk.burncalories;
+package com.aharoldk.burnyourcalories;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

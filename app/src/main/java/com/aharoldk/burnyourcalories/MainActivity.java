@@ -1,4 +1,4 @@
-package com.aharoldk.burncalories;
+package com.aharoldk.burnyourcalories;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -7,11 +7,10 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
-import android.widget.TextView;
 
-import com.aharoldk.burncalories.fragment.BurnFragment;
-import com.aharoldk.burncalories.fragment.HomeFragment;
-import com.aharoldk.burncalories.fragment.ProfileFragment;
+import com.aharoldk.burnyourcalories.fragment.BurnFragment;
+import com.aharoldk.burnyourcalories.fragment.HomeFragment;
+import com.aharoldk.burnyourcalories.fragment.ProfileFragment;
 
 public class MainActivity extends AppCompatActivity {
 
