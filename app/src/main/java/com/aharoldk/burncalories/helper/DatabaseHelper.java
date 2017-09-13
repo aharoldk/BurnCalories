@@ -87,6 +87,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return result != -1;
     }
 
+    public boolean updateUser(String name){
+        sqLiteDatabase = DatabaseHelper.this.getWritableDatabase();
+
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put(NAME, name);
+
+        long result = sqLiteDatabase.update(TABLE_NAME1, contentValues, NAME+" = ?", new String[] {name});
+
+        if(result == -1){
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     public Cursor selectUser(){
         sqLiteDatabase = DatabaseHelper.this.getWritableDatabase();
 

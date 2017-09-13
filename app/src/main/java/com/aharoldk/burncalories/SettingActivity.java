@@ -1,6 +1,7 @@
 package com.aharoldk.burncalories;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -13,7 +14,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import com.aharoldk.burncalories.fragment.ProfileFragment;
 import com.aharoldk.burncalories.helper.DatabaseHelper;
 
 import java.io.File;
@@ -45,12 +48,22 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.activity_setting);
         ButterKnife.bind(this);
 
+        declarate();
+
+        showImages();
+    }
+
+    private void declarate() {
         databaseHelper = new DatabaseHelper(this);
 
         btnProfileChange.setOnClickListener(this);
         btnProfileSaveName.setOnClickListener(this);
 
-        showImages();
+        Cursor cursor = databaseHelper.selectUser();
+
+        cursor.moveToFirst();
+
+        etProfileName.setText(String.valueOf(cursor.getString(1)));
     }
 
     @Override
@@ -61,10 +74,21 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
                 break;
 
             case R.id.btnProfileSaveName:
+                saveName();
                 break;
 
             default:
                 break;
+        }
+    }
+
+    private void saveName() {
+        String getName = etProfileName.getText().toString();
+
+        if(databaseHelper.updateUser(getName)) {
+            Toast.makeText(this, "Update Name Profile Complete", Toast.LENGTH_SHORT).show();
+            finish();
+            startActivity(new Intent(this, MainActivity.class));
         }
     }
 
@@ -161,11 +185,14 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
         Bitmap photoReducedSizeBitmp = BitmapFactory.decodeFile(mCurrentPhotoPath, bmOptions);
 
         ivProfilePhoto.setImageBitmap(photoReducedSizeBitmp);
+
+        Toast.makeText(this, "Update Photo Profile Complete", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void onBackPressed() {
         super.onBackPressed();
         finish();
+        startActivity(new Intent(this, MainActivity.class));
     }
 }
