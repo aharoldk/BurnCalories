@@ -1,4 +1,4 @@
-package com.aharoldk.burnyourcalories.helper;
+package com.aharoldk.burncalories.helper;
 
 import com.samsung.android.sdk.motion.SmotionPedometer;
 

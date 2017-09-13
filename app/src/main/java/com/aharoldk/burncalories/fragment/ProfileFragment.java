@@ -1,28 +1,34 @@
-package com.aharoldk.burnyourcalories.fragment;
+package com.aharoldk.burncalories.fragment;
 
 
 import android.content.Intent;
 import android.database.Cursor;
-import android.icu.text.DecimalFormat;
-import android.os.Build;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.support.annotation.RequiresApi;
+import android.os.Environment;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.aharoldk.burnyourcalories.R;
-import com.aharoldk.burnyourcalories.SettingActivity;
-import com.aharoldk.burnyourcalories.helper.DatabaseHelper;
+import com.aharoldk.burncalories.R;
+import com.aharoldk.burncalories.SettingActivity;
+import com.aharoldk.burncalories.helper.DatabaseHelper;
+
+import java.io.File;
+import java.io.FilenameFilter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class ProfileFragment extends Fragment {
     @BindView(R.id.ivSetting) ImageView ivSetting;
+    @BindView(R.id.profile_image) CircleImageView profile_image;
 
     @BindView(R.id.tvName) TextView tvName;
     @BindView(R.id.tvAvgSteps) TextView tvAvgSteps;
@@ -40,8 +46,6 @@ public class ProfileFragment extends Fragment {
     public ProfileFragment() {
     }
 
-
-    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -55,7 +59,7 @@ public class ProfileFragment extends Fragment {
 
         Cursor cursorActivity = databaseHelper.selectActivity();
 
-        DecimalFormat decimalFormat = new DecimalFormat("#.##");
+        showImages();
 
         if(cursorActivity.getCount() > 0){
             while(cursorActivity.moveToNext()){
@@ -64,21 +68,21 @@ public class ProfileFragment extends Fragment {
                 totalSteps += cursorActivity.getDouble(3);
 
                 tvAvgSteps.setText(String.valueOf(totalSteps / cursorActivity.getCount()));
-                tvAvgDistance.setText(String.valueOf(decimalFormat.format(totalDistance / cursorActivity.getCount())));
-                tvAvgCal.setText(String.valueOf(decimalFormat.format(totalCalories / cursorActivity.getCount())));
+                tvAvgDistance.setText(String.valueOf(String.format("%.2f",(totalDistance / cursorActivity.getCount()))));
+                tvAvgCal.setText(String.valueOf(String.format("%.2f", (totalCalories / cursorActivity.getCount()))));
 
                 tvTotalSteps.setText(String.valueOf(totalSteps));
-                tvTotalDistance.setText(String.valueOf(decimalFormat.format(totalDistance)));
-                tvTotalCalories.setText(String.valueOf(decimalFormat.format(totalCalories)));
+                tvTotalDistance.setText(String.valueOf(String.format("%.2f",totalDistance)));
+                tvTotalCalories.setText(String.valueOf(String.format("%.2f",totalCalories)));
             }
         } else {
             tvAvgSteps.setText(String.valueOf(totalSteps));
-            tvAvgDistance.setText(String.valueOf(decimalFormat.format(totalDistance)));
-            tvAvgCal.setText(String.valueOf(decimalFormat.format(totalCalories)));
+            tvAvgDistance.setText(String.valueOf(String.format("%.2f",totalDistance)));
+            tvAvgCal.setText(String.valueOf(String.format("%.2f",totalCalories)));
 
             tvTotalSteps.setText(String.valueOf(totalSteps));
-            tvTotalDistance.setText(String.valueOf(decimalFormat.format(totalDistance)));
-            tvTotalCalories.setText(String.valueOf(decimalFormat.format(totalCalories)));
+            tvTotalDistance.setText(String.valueOf(String.format("%.2f",totalDistance)));
+            tvTotalCalories.setText(String.valueOf(String.format("%.2f",totalCalories)));
         }
 
         ivSetting.setOnClickListener(new View.OnClickListener() {
@@ -89,6 +93,39 @@ public class ProfileFragment extends Fragment {
         });
 
         return view;
+    }
+
+    static final String[] EXTENSIONS = new String[]{
+            "jpg" // and other formats you need
+    };
+    // filter to identify images based on their extensions
+    static final FilenameFilter IMAGE_FILTER = new FilenameFilter() {
+
+        @Override
+        public boolean accept(final File dir, final String name) {
+            for (final String ext : EXTENSIONS) {
+                if (name.endsWith("." + ext)) {
+                    return (true);
+                }
+            }
+            return (false);
+        }
+    };
+
+    private void showImages() {
+        File dir = new File(String.valueOf(getActivity().getExternalFilesDir(Environment.DIRECTORY_PICTURES)));
+
+        File[] filelist = dir.listFiles(IMAGE_FILTER );
+        for (File f : filelist) {
+
+            String mCurrentPhotoPath = f.getAbsolutePath();
+
+            Log.i("current", mCurrentPhotoPath);
+
+            Bitmap photoReducedSizeBitmp = BitmapFactory.decodeFile(mCurrentPhotoPath);
+
+            profile_image.setImageBitmap(photoReducedSizeBitmp);
+        }
     }
 
 }

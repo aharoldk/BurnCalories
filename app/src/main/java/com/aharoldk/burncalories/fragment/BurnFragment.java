@@ -1,13 +1,10 @@
-package com.aharoldk.burnyourcalories.fragment;
+package com.aharoldk.burncalories.fragment;
 
 import android.content.Intent;
 import android.database.Cursor;
-import android.icu.text.DecimalFormat;
 import android.icu.text.SimpleDateFormat;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,9 +12,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.aharoldk.burnyourcalories.KillerActivity;
-import com.aharoldk.burnyourcalories.R;
-import com.aharoldk.burnyourcalories.helper.DatabaseHelper;
+import com.aharoldk.burncalories.KillerActivity;
+import com.aharoldk.burncalories.R;
+import com.aharoldk.burncalories.helper.DatabaseHelper;
 
 import java.util.Calendar;
 
@@ -31,18 +28,16 @@ public class BurnFragment extends Fragment implements View.OnClickListener{
     String dateNow;
     double totalCalories;
 
-    DecimalFormat format;
-
     public BurnFragment() {
 
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        SimpleDateFormat dateTimeFormat = new SimpleDateFormat("dd-MM-yyyy");
+        SimpleDateFormat dateTimeFormat;
+        dateTimeFormat = new SimpleDateFormat("dd-MM-yyyy");
 
         Calendar calendar = Calendar.getInstance();
         dateNow = dateTimeFormat.format(calendar.getTime());
@@ -58,7 +53,6 @@ public class BurnFragment extends Fragment implements View.OnClickListener{
         }
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -66,8 +60,7 @@ public class BurnFragment extends Fragment implements View.OnClickListener{
 
         ButterKnife.bind(this, view);
 
-        format = new DecimalFormat("#.##");
-        tvBurnCalories.setText(String.valueOf(format.format(totalCalories)));
+        tvBurnCalories.setText(String.valueOf( String.format("%.2f", totalCalories )));
 
         btnStart.setOnClickListener(this);
         return view;

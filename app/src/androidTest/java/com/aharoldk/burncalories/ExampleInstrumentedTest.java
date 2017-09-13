@@ -1,4 +1,4 @@
-package com.aharoldk.burnyourcalories;
+package com.aharoldk.burncalories;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

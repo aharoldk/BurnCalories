@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.aharoldk.burnyourcalories">
+    package="com.aharoldk.burncalories">
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="18" />
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <uses-feature android:name="android.hardware.camera"
+        android:required="true" />
+
 
     <application
         android:allowBackup="true"
@@ -10,7 +19,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.aharoldk.burnyourcalories.SplashActivity"
+            android:name="com.aharoldk.burncalories.SplashActivity"
             android:theme="@style/NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,13 +28,24 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.aharoldk.burnyourcalories.MainActivity"
+            android:name="com.aharoldk.burncalories.MainActivity"
             android:theme="@style/NoActionBar" />
         <activity
-            android:name="com.aharoldk.burnyourcalories.KillerActivity"
+            android:name="com.aharoldk.burncalories.KillerActivity"
             android:theme="@style/NoActionBar" />
-        <activity android:name="com.aharoldk.burnyourcalories.InsertActivity" />
-        <activity android:name="com.aharoldk.burnyourcalories.SettingActivity"/>
+        <activity android:name="com.aharoldk.burncalories.InsertActivity" />
+        <activity android:name="com.aharoldk.burncalories.SettingActivity"
+            android:theme="@style/NoActionBar"/>
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.aharoldk.burncalories.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
     </application>
 
 </manifest>

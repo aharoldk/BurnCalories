@@ -1,14 +1,11 @@
-package com.aharoldk.burnyourcalories;
+package com.aharoldk.burncalories;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.icu.text.DecimalFormat;
 import android.icu.text.SimpleDateFormat;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
-import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -17,9 +14,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.aharoldk.burnyourcalories.helper.DatabaseHelper;
-import com.aharoldk.burnyourcalories.helper.PedometerCallback;
-import com.aharoldk.burnyourcalories.helper.PedometerHelper;
+import com.aharoldk.burncalories.helper.DatabaseHelper;
+import com.aharoldk.burncalories.helper.PedometerCallback;
+import com.aharoldk.burncalories.helper.PedometerHelper;
 import com.samsung.android.sdk.SsdkUnsupportedException;
 import com.samsung.android.sdk.motion.SmotionPedometer;
 
@@ -100,7 +97,6 @@ public class KillerActivity extends AppCompatActivity implements View.OnClickLis
         stopView.setOnClickListener(this);
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public void onClick(View view) {
         if(view.equals(pauseView)){
@@ -123,6 +119,7 @@ public class KillerActivity extends AppCompatActivity implements View.OnClickLis
 
         } else if (view.equals(stopView)){
             startRun=false;
+
             pedometerHelper.stop();
 
             DatabaseHelper databaseHelper = new DatabaseHelper(this);
@@ -183,14 +180,10 @@ public class KillerActivity extends AppCompatActivity implements View.OnClickLis
                 .show();
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public void updateInfo(SmotionPedometer.Info info) {
         double calorie = info.getCalorie();
         double distance = info.getDistance() / interval;
-
-        DecimalFormat df2 = new DecimalFormat("#.##");
-        DecimalFormat df3 = new DecimalFormat("#.###");
 
         if(info.getCount(SmotionPedometer.Info.COUNT_TOTAL) != 0){
 
@@ -204,18 +197,19 @@ public class KillerActivity extends AppCompatActivity implements View.OnClickLis
             resultCalories = resultCalories + (calorie - oldresultCalories);
         }
 
-        tvTotalCalories.setText(""+df2.format(resultCalories));
-        tvTotalDistance.setText(""+df3.format(resultDistance));
+        tvTotalCalories.setText(String.format("%.2f", resultCalories));
+        tvTotalDistance.setText(String.format("%.3f", resultDistance));
         tvTotalCount.setText(String.valueOf(resultCount));
 
-        Log.d("Burn", "onChanged: "+ " calorie "+df2.format(resultCalories)+
-                " distance"+df3.format(resultDistance)+
+        Log.d("Burn", "onChanged: "+ " calorie "+String.format("%.2f", resultCalories)+
+                " distance"+String.format("%.3f", resultDistance)+
                 " count"+resultCount);
 
         try {
             resultCount++;
             oldresultCalories = calorie;
             oldresultDistance = distance;
+
         } catch (Exception e ){
             e.printStackTrace();
         }

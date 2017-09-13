@@ -1,4 +1,4 @@
-package com.aharoldk.burnyourcalories.helper;
+package com.aharoldk.burncalories.helper;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -6,7 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.aharoldk.burnyourcalories.model.Home;
+import com.aharoldk.burncalories.model.Home;
 
 import java.util.ArrayList;
 import java.util.List;

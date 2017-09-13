@@ -1,4 +1,4 @@
-package com.aharoldk.burnyourcalories;
+package com.aharoldk.burncalories;
 
 import android.content.Intent;
 import android.icu.text.SimpleDateFormat;
@@ -12,7 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.CheckBox;
 
-import com.aharoldk.burnyourcalories.helper.DatabaseHelper;
+import com.aharoldk.burncalories.helper.DatabaseHelper;
 
 import java.util.Calendar;
 

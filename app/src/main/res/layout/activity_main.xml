@@ -5,7 +5,7 @@
     android:id="@+id/container"
     style="@style/matchmatch"
     android:orientation="vertical"
-    tools:context="com.aharoldk.burnyourcalories.MainActivity">
+    tools:context="com.aharoldk.burncalories.MainActivity">
 
     <FrameLayout
         android:id="@+id/content"

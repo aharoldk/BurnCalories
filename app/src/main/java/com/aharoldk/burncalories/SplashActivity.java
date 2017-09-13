@@ -1,4 +1,4 @@
-package com.aharoldk.burnyourcalories;
+package com.aharoldk.burncalories;
 
 import android.content.Intent;
 import android.database.Cursor;
@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.aharoldk.burnyourcalories.helper.DatabaseHelper;
+import com.aharoldk.burncalories.helper.DatabaseHelper;
 
 public class SplashActivity extends AppCompatActivity {
 
