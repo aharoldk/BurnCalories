@@ -1,4 +1,4 @@
-package com.aharoldk.burncalories;
+package com.sudigital.burnyourcalories;
 
 import org.junit.Test;
 

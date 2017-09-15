@@ -1,4 +1,4 @@
-package com.aharoldk.burncalories.fragment;
+package com.sudigital.burnyourcalories.fragment;
 
 
 import android.content.Intent;
@@ -15,9 +15,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.aharoldk.burncalories.R;
-import com.aharoldk.burncalories.SettingActivity;
-import com.aharoldk.burncalories.helper.DatabaseHelper;
+import com.sudigital.burnyourcalories.R;
+import com.sudigital.burnyourcalories.SettingActivity;
+import com.sudigital.burnyourcalories.helper.DatabaseHelper;
 
 import java.io.File;
 import java.io.FilenameFilter;

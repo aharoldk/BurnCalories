@@ -1,4 +1,4 @@
-package com.aharoldk.burncalories;
+package com.sudigital.burnyourcalories;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -14,9 +14,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.aharoldk.burncalories.helper.DatabaseHelper;
-import com.aharoldk.burncalories.helper.PedometerCallback;
-import com.aharoldk.burncalories.helper.PedometerHelper;
+import com.sudigital.burnyourcalories.helper.DatabaseHelper;
+import com.sudigital.burnyourcalories.helper.PedometerCallback;
+import com.sudigital.burnyourcalories.helper.PedometerHelper;
 import com.samsung.android.sdk.SsdkUnsupportedException;
 import com.samsung.android.sdk.motion.SmotionPedometer;
 
@@ -26,14 +26,14 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class KillerActivity extends AppCompatActivity implements View.OnClickListener, PedometerCallback {
-    @BindView(R.id.tvCountdown) TextView tvCountDown;
-    @BindView(R.id.tvCountdownView) TextView tvCountdownView;
-    @BindView(R.id.tvTotalCount) TextView tvTotalCount;
-    @BindView(R.id.tvTotalDistance) TextView tvTotalDistance;
-    @BindView(R.id.tvTotalCalories) TextView tvTotalCalories;
-    @BindView(R.id.pauseView) LinearLayout pauseView;
-    @BindView(R.id.stopView) LinearLayout stopView;
-    @BindView(R.id.ivPlayPause) ImageView ivPlayPause;
+    @BindView(com.sudigital.burnyourcalories.R.id.tvCountdown) TextView tvCountDown;
+    @BindView(com.sudigital.burnyourcalories.R.id.tvCountdownView) TextView tvCountdownView;
+    @BindView(com.sudigital.burnyourcalories.R.id.tvTotalCount) TextView tvTotalCount;
+    @BindView(com.sudigital.burnyourcalories.R.id.tvTotalDistance) TextView tvTotalDistance;
+    @BindView(com.sudigital.burnyourcalories.R.id.tvTotalCalories) TextView tvTotalCalories;
+    @BindView(com.sudigital.burnyourcalories.R.id.pauseView) LinearLayout pauseView;
+    @BindView(com.sudigital.burnyourcalories.R.id.stopView) LinearLayout stopView;
+    @BindView(com.sudigital.burnyourcalories.R.id.ivPlayPause) ImageView ivPlayPause;
 
 
     PedometerHelper pedometerHelper;
@@ -54,7 +54,7 @@ public class KillerActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_killer);
+        setContentView(com.sudigital.burnyourcalories.R.layout.activity_killer);
 
         if(savedInstanceState != null){
             seconds = savedInstanceState.getInt("seconds");
@@ -101,7 +101,7 @@ public class KillerActivity extends AppCompatActivity implements View.OnClickLis
     public void onClick(View view) {
         if(view.equals(pauseView)){
             if(!startpause.equals("pause")){
-                ivPlayPause.setImageResource(R.drawable.ic_pause);
+                ivPlayPause.setImageResource(com.sudigital.burnyourcalories.R.drawable.ic_pause);
                 stopView.setVisibility(View.GONE);
                 startpause = "pause";
                 startRun = true;
@@ -110,7 +110,7 @@ public class KillerActivity extends AppCompatActivity implements View.OnClickLis
 
             } else {
                 startRun=false;
-                ivPlayPause.setImageResource(R.drawable.ic_play);
+                ivPlayPause.setImageResource(com.sudigital.burnyourcalories.R.drawable.ic_play);
                 stopView.setVisibility(View.VISIBLE);
                 startpause = "start";
                 pedometerHelper.stop();
@@ -185,17 +185,25 @@ public class KillerActivity extends AppCompatActivity implements View.OnClickLis
         double calorie = info.getCalorie();
         double distance = info.getDistance() / interval;
 
-        if(info.getCount(SmotionPedometer.Info.COUNT_TOTAL) != 0){
+        if(info.getCount(SmotionPedometer.Info.COUNT_TOTAL) != 0) {
 
             if(resultCount < 0){
+                resultCount = 0;
                 oldresultCalories = calorie;
                 oldresultDistance = distance;
-                resultCount = 0;
+
             }
 
-            resultDistance = resultDistance + (distance - oldresultDistance);
-            resultCalories = resultCalories + (calorie - oldresultCalories);
+        } else {
+            if(resultCount < 0){
+                resultCount = 0;
+
+            }
+
         }
+
+        resultDistance = resultDistance + (distance - oldresultDistance);
+        resultCalories = resultCalories + (calorie - oldresultCalories);
 
         tvTotalCalories.setText(String.format("%.2f", resultCalories));
         tvTotalDistance.setText(String.format("%.3f", resultDistance));

@@ -1,4 +1,4 @@
-package com.aharoldk.burncalories.fragment;
+package com.sudigital.burnyourcalories.fragment;
 
 import android.content.Intent;
 import android.database.Cursor;
@@ -12,9 +12,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.aharoldk.burncalories.KillerActivity;
-import com.aharoldk.burncalories.R;
-import com.aharoldk.burncalories.helper.DatabaseHelper;
+import com.sudigital.burnyourcalories.KillerActivity;
+import com.sudigital.burnyourcalories.R;
+import com.sudigital.burnyourcalories.helper.DatabaseHelper;
 
 import java.util.Calendar;
 

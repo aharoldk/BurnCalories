@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.aharoldk.burncalories">
+    package="com.sudigital.burnyourcalories">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         android:maxSdkVersion="18" />
@@ -19,7 +19,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.aharoldk.burncalories.SplashActivity"
+            android:name="com.sudigital.burnyourcalories.SplashActivity"
             android:theme="@style/NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,18 +28,18 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.aharoldk.burncalories.MainActivity"
+            android:name="com.sudigital.burnyourcalories.MainActivity"
             android:theme="@style/NoActionBar" />
         <activity
-            android:name="com.aharoldk.burncalories.KillerActivity"
+            android:name="com.sudigital.burnyourcalories.KillerActivity"
             android:theme="@style/NoActionBar" />
-        <activity android:name="com.aharoldk.burncalories.InsertActivity" />
-        <activity android:name="com.aharoldk.burncalories.SettingActivity"
+        <activity android:name="com.sudigital.burnyourcalories.InsertActivity" />
+        <activity android:name="com.sudigital.burnyourcalories.SettingActivity"
             android:theme="@style/NoActionBar"/>
 
         <provider
             android:name="android.support.v4.content.FileProvider"
-            android:authorities="com.aharoldk.burncalories.fileprovider"
+            android:authorities="com.sudigital.burnyourcalories.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data

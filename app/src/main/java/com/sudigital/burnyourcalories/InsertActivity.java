@@ -1,4 +1,4 @@
-package com.aharoldk.burncalories;
+package com.sudigital.burnyourcalories;
 
 import android.content.Intent;
 import android.icu.text.SimpleDateFormat;
@@ -12,7 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.CheckBox;
 
-import com.aharoldk.burncalories.helper.DatabaseHelper;
+import com.sudigital.burnyourcalories.helper.DatabaseHelper;
 
 import java.util.Calendar;
 
@@ -20,17 +20,17 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class InsertActivity extends AppCompatActivity {
-    @BindView(R.id.chkSoda) CheckBox chkSoda;
-    @BindView(R.id.chkPizza) CheckBox chkPizza;
-    @BindView(R.id.chkSandwich) CheckBox chkSandwich;
-    @BindView(R.id.chkCereal) CheckBox chkCereal;
-    @BindView(R.id.chkMuffin) CheckBox chkMuffin;
+    @BindView(com.sudigital.burnyourcalories.R.id.chkSoda) CheckBox chkSoda;
+    @BindView(com.sudigital.burnyourcalories.R.id.chkPizza) CheckBox chkPizza;
+    @BindView(com.sudigital.burnyourcalories.R.id.chkSandwich) CheckBox chkSandwich;
+    @BindView(com.sudigital.burnyourcalories.R.id.chkCereal) CheckBox chkCereal;
+    @BindView(com.sudigital.burnyourcalories.R.id.chkMuffin) CheckBox chkMuffin;
 
-    @BindView(R.id.chkChoco) CheckBox chkChoco;
-    @BindView(R.id.chkMocha) CheckBox chkMocha;
-    @BindView(R.id.chkChips) CheckBox chkChips;
-    @BindView(R.id.chkPeanuts) CheckBox chkPeanuts;
-    @BindView(R.id.chkCinnamon) CheckBox chkCinnamon;
+    @BindView(com.sudigital.burnyourcalories.R.id.chkChoco) CheckBox chkChoco;
+    @BindView(com.sudigital.burnyourcalories.R.id.chkMocha) CheckBox chkMocha;
+    @BindView(com.sudigital.burnyourcalories.R.id.chkChips) CheckBox chkChips;
+    @BindView(com.sudigital.burnyourcalories.R.id.chkPeanuts) CheckBox chkPeanuts;
+    @BindView(com.sudigital.burnyourcalories.R.id.chkCinnamon) CheckBox chkCinnamon;
 
     double total_calories = 0;
     int total_walk = 0;
@@ -39,14 +39,14 @@ public class InsertActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_insert);
+        setContentView(com.sudigital.burnyourcalories.R.layout.activity_insert);
         ButterKnife.bind(this);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_insert, menu);
+        inflater.inflate(com.sudigital.burnyourcalories.R.menu.menu_insert, menu);
         return true;
     }
 
@@ -55,7 +55,7 @@ public class InsertActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
 
-            case R.id.action_send:
+            case com.sudigital.burnyourcalories.R.id.action_send:
                 DatabaseHelper databaseHelper = new DatabaseHelper(this);
                 SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
 
@@ -77,7 +77,7 @@ public class InsertActivity extends AppCompatActivity {
 
         // Check which checkbox was clicked
         switch(view.getId()) {
-            case R.id.chkSoda:
+            case com.sudigital.burnyourcalories.R.id.chkSoda:
                 if (checked) {
                     total_calories += 138;
                     total_walk += 26;
@@ -89,7 +89,7 @@ public class InsertActivity extends AppCompatActivity {
                 }
                  break;
 
-            case R.id.chkChoco:
+            case com.sudigital.burnyourcalories.R.id.chkChoco:
                 if (checked) {
                     total_calories += 229;
                     total_walk += 42;
@@ -101,7 +101,7 @@ public class InsertActivity extends AppCompatActivity {
                 }
                 break;
 
-            case R.id.chkSandwich:
+            case com.sudigital.burnyourcalories.R.id.chkSandwich:
                 if (checked) {
                     total_calories += 445;
                     total_walk += 82;
@@ -113,7 +113,7 @@ public class InsertActivity extends AppCompatActivity {
                 }
                 break;
 
-            case R.id.chkPizza:
+            case com.sudigital.burnyourcalories.R.id.chkPizza:
                 if (checked) {
                     total_calories += 449;
                     total_walk += 83;
@@ -128,7 +128,7 @@ public class InsertActivity extends AppCompatActivity {
 
 
 
-            case R.id.chkMocha:
+            case com.sudigital.burnyourcalories.R.id.chkMocha:
                 if (checked) {
                     total_calories += 290;
                     total_walk += 53;
@@ -141,7 +141,7 @@ public class InsertActivity extends AppCompatActivity {
                 break;
 
 
-            case R.id.chkChips:
+            case com.sudigital.burnyourcalories.R.id.chkChips:
                 if (checked) {
                     total_calories += 171;
                     total_walk += 31;
@@ -154,7 +154,7 @@ public class InsertActivity extends AppCompatActivity {
                 break;
 
 
-            case R.id.chkPeanuts:
+            case com.sudigital.burnyourcalories.R.id.chkPeanuts:
                 if (checked) {
                     total_calories += 296;
                     total_walk += 54;
@@ -166,7 +166,7 @@ public class InsertActivity extends AppCompatActivity {
                 }
                 break;
 
-            case R.id.chkCinnamon:
+            case com.sudigital.burnyourcalories.R.id.chkCinnamon:
                 if (checked) {
                     total_calories += 420;
                     total_walk += 117;
@@ -178,7 +178,7 @@ public class InsertActivity extends AppCompatActivity {
                 }
                 break;
 
-            case R.id.chkCereal:
+            case com.sudigital.burnyourcalories.R.id.chkCereal:
                 if (checked) {
                     total_calories += 172;
                     total_walk += 31;
@@ -190,7 +190,7 @@ public class InsertActivity extends AppCompatActivity {
                 }
                 break;
 
-            case R.id.chkMuffin:
+            case com.sudigital.burnyourcalories.R.id.chkMuffin:
                 if (checked) {
                     total_calories += 265;
                     total_walk += 48;

@@ -1,12 +1,12 @@
-package com.aharoldk.burncalories.adapter;
+package com.sudigital.burnyourcalories.adapter;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.aharoldk.burncalories.R;
-import com.aharoldk.burncalories.model.Home;
+import com.sudigital.burnyourcalories.R;
+import com.sudigital.burnyourcalories.model.Home;
 
 import java.util.List;
 

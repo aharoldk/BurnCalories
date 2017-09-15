@@ -1,4 +1,4 @@
-package com.aharoldk.burncalories;
+package com.sudigital.burnyourcalories;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -8,9 +8,9 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
-import com.aharoldk.burncalories.fragment.BurnFragment;
-import com.aharoldk.burncalories.fragment.HomeFragment;
-import com.aharoldk.burncalories.fragment.ProfileFragment;
+import com.sudigital.burnyourcalories.fragment.BurnFragment;
+import com.sudigital.burnyourcalories.fragment.HomeFragment;
+import com.sudigital.burnyourcalories.fragment.ProfileFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,13 +22,13 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             Fragment fragment = null;
             switch (item.getItemId()) {
-                case R.id.navigation_home:
+                case com.sudigital.burnyourcalories.R.id.navigation_home:
                     fragment = new HomeFragment();
                     break;
-                case R.id.navigation_burn:
+                case com.sudigital.burnyourcalories.R.id.navigation_burn:
                     fragment = new BurnFragment();
                     break;
-                case R.id.navigation_profile:
+                case com.sudigital.burnyourcalories.R.id.navigation_profile:
                     fragment = new ProfileFragment();
                     break;
 
@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
             if(fragment!=null) {
                 getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.content, fragment)
+                        .replace(com.sudigital.burnyourcalories.R.id.content, fragment)
                         .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
                         .addToBackStack(null)
                         .commit();
@@ -51,14 +51,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(com.sudigital.burnyourcalories.R.layout.activity_main);
 
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        BottomNavigationView navigation = (BottomNavigationView) findViewById(com.sudigital.burnyourcalories.R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         if(savedInstanceState==null) {
             getSupportFragmentManager().beginTransaction().
-                    add(R.id.content,
+                    add(com.sudigital.burnyourcalories.R.id.content,
                             new HomeFragment()).commit();
         }
 

@@ -1,4 +1,4 @@
-package com.aharoldk.burncalories;
+package com.sudigital.burnyourcalories;
 
 import android.content.Intent;
 import android.database.Cursor;
@@ -16,8 +16,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.aharoldk.burncalories.fragment.ProfileFragment;
-import com.aharoldk.burncalories.helper.DatabaseHelper;
+import com.sudigital.burnyourcalories.helper.DatabaseHelper;
 
 import java.io.File;
 import java.io.FilenameFilter;
@@ -31,10 +30,10 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class SettingActivity extends AppCompatActivity implements View.OnClickListener {
 
-    @BindView(R.id.ivProfilePhoto) CircleImageView ivProfilePhoto;
-    @BindView(R.id.btnProfileChange) Button btnProfileChange;
-    @BindView(R.id.etProfileName) EditText etProfileName;
-    @BindView(R.id.btnProfileSaveName) Button btnProfileSaveName;
+    @BindView(com.sudigital.burnyourcalories.R.id.ivProfilePhoto) CircleImageView ivProfilePhoto;
+    @BindView(com.sudigital.burnyourcalories.R.id.btnProfileChange) Button btnProfileChange;
+    @BindView(com.sudigital.burnyourcalories.R.id.etProfileName) EditText etProfileName;
+    @BindView(com.sudigital.burnyourcalories.R.id.btnProfileSaveName) Button btnProfileSaveName;
 
     private static final int REQUEST_IMAGE_CAPTURE = 1;
     private String mCurrentPhotoPath;
@@ -45,7 +44,7 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_setting);
+        setContentView(com.sudigital.burnyourcalories.R.layout.activity_setting);
         ButterKnife.bind(this);
 
         declarate();
@@ -69,11 +68,11 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View view) {
         switch (view.getId()){
-            case R.id.btnProfileChange:
+            case com.sudigital.burnyourcalories.R.id.btnProfileChange:
                 dispatchTakePictureIntent();
                 break;
 
-            case R.id.btnProfileSaveName:
+            case com.sudigital.burnyourcalories.R.id.btnProfileSaveName:
                 saveName();
                 break;
 

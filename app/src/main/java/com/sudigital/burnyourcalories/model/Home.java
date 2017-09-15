@@ -1,4 +1,4 @@
-package com.aharoldk.burncalories.model;
+package com.sudigital.burnyourcalories.model;
 
 public class Home {
     double total_calories;

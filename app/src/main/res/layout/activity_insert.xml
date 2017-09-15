@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/matchmatch"
-    tools:context="com.aharoldk.burncalories.InsertActivity"
+    tools:context="com.sudigital.burnyourcalories.InsertActivity"
     android:orientation="horizontal"
     android:padding="@dimen/activity_horizontal_margin">
 

@@ -5,9 +5,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.aharoldk.burncalories.SplashActivity"
+    tools:context="com.sudigital.burnyourcalories.SplashActivity"
     android:gravity="center_horizontal|center_vertical">
     <ImageView
+        android:layout_marginTop="-25dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/logo"

@@ -1,4 +1,4 @@
-package com.aharoldk.burncalories.fragment;
+package com.sudigital.burnyourcalories.fragment;
 
 
 import android.content.Intent;
@@ -13,10 +13,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.aharoldk.burncalories.InsertActivity;
-import com.aharoldk.burncalories.R;
-import com.aharoldk.burncalories.adapter.HomeAdapter;
-import com.aharoldk.burncalories.helper.DatabaseHelper;
+import com.sudigital.burnyourcalories.InsertActivity;
+import com.sudigital.burnyourcalories.R;
+import com.sudigital.burnyourcalories.adapter.HomeAdapter;
+import com.sudigital.burnyourcalories.helper.DatabaseHelper;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

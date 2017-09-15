@@ -1,4 +1,4 @@
-package com.aharoldk.burncalories.helper;
+package com.sudigital.burnyourcalories.helper;
 
 import android.content.Context;
 import android.os.Looper;
